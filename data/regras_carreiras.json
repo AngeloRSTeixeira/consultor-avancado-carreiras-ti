@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "nome": "Base de Conhecimento — Consultor Avançado de Carreiras em TI",
+    "versao": "1.0",
+    "descricao": "Perguntas, pesos de correlação pergunta x trilha e regras de bônus/penalidade. O motor de inferência lê este arquivo; nada disso fica fixo no código."
+  },
+  "escala": {
+    "min": 1,
+    "max": 5,
+    "rotulos": {
+      "1": "Nenhuma afinidade",
+      "2": "Pouca afinidade",
+      "3": "Moderada",
+      "4": "Muita afinidade",
+      "5": "Paixão / afinidade total"
+    }
+  },
+  "etapas": {
+    "1": "Perfil pessoal",
+    "2": "Afinidades técnicas",
+    "3": "Objetivos de carreira"
+  },
+  "perguntas": [
+    {"id": "comunicacao", "etapa": 1, "tipo": "likert", "texto": "Gosto de conversar, negociar e apresentar ideias para outras pessoas."},
+    {"id": "lideranca", "etapa": 1, "tipo": "likert", "texto": "Gosto de organizar o trabalho do time, priorizar e tomar decisões."},
+    {"id": "atencao_detalhes", "etapa": 1, "tipo": "likert", "texto": "Tenho paciência para revisar detalhes e encontrar erros pequenos."},
+    {"id": "criatividade", "etapa": 1, "tipo": "likert", "texto": "Gosto de criar coisas visuais e pensar na experiência de quem vai usar."},
+    {"id": "experiencia", "etapa": 1, "tipo": "escolha", "texto": "Qual sua experiência profissional em TI?",
+     "opcoes": {"nenhuma": "Nenhuma (estudante)", "estagio": "Estágio ou menos de 1 ano", "1a3": "De 1 a 3 anos", "mais3": "Mais de 3 anos"}},
+    {"id": "horas_semana", "etapa": 1, "tipo": "numero", "texto": "Quantas horas por semana você consegue dedicar aos estudos?",
+     "min": 2, "max": 40, "padrao": 10},
+
+    {"id": "matematica", "etapa": 2, "tipo": "likert", "texto": "Matemática e estatística"},
+    {"id": "logica", "etapa": 2, "tipo": "likert", "texto": "Lógica de programação e resolver problemas com algoritmos"},
+    {"id": "interfaces", "etapa": 2, "tipo": "likert", "texto": "Construir telas, layouts e interfaces"},
+    {"id": "infraestrutura", "etapa": 2, "tipo": "likert", "texto": "Servidores, Linux e redes"},
+    {"id": "dados", "etapa": 2, "tipo": "likert", "texto": "Organizar, limpar e analisar dados"},
+    {"id": "seguranca", "etapa": 2, "tipo": "likert", "texto": "Segurança da informação, ataques e defesas"},
+    {"id": "automacao", "etapa": 2, "tipo": "likert", "texto": "Automatizar tarefas repetitivas com scripts"},
+    {"id": "nuvem", "etapa": 2, "tipo": "likert", "texto": "Serviços de nuvem (AWS, Azure, GCP)"},
+    {"id": "mobile", "etapa": 2, "tipo": "likert", "texto": "Aplicativos para celular"},
+    {"id": "testes", "etapa": 2, "tipo": "likert", "texto": "Testar software e validar se tudo funciona"},
+
+    {"id": "obj_produto", "etapa": 3, "tipo": "likert", "texto": "Me motiva ver pessoas usando algo que eu construí."},
+    {"id": "obj_infra", "etapa": 3, "tipo": "likert", "texto": "Me motiva manter sistemas no ar, rápidos e escaláveis."},
+    {"id": "obj_insights", "etapa": 3, "tipo": "likert", "texto": "Me motiva descobrir padrões e prever resultados com dados."},
+    {"id": "obj_protecao", "etapa": 3, "tipo": "likert", "texto": "Me motiva proteger sistemas e dados contra ataques."},
+    {"id": "obj_qualidade", "etapa": 3, "tipo": "likert", "texto": "Me motiva garantir que o software funcione sem falhas."},
+    {"id": "obj_negocio", "etapa": 3, "tipo": "likert", "texto": "Me motiva decidir o que será construído e por quê."},
+    {"id": "ambiente", "etapa": 3, "tipo": "escolha", "texto": "Em qual ambiente você prefere atuar?",
+     "opcoes": {"web": "Web", "mobile": "Celulares e tablets", "nuvem": "Nuvem", "indiferente": "Indiferente"}},
+    {"id": "objetivo", "etapa": 3, "tipo": "escolha", "texto": "Qual seu objetivo principal agora?",
+     "opcoes": {"primeiro_emprego": "Conseguir o primeiro emprego/estágio", "transicao": "Migrar de área dentro de TI", "crescer": "Crescer na área em que já atuo"}}
+  ],
+  "trilhas": {
+    "backend": {
+      "nome": "Desenvolvimento Back-end",
+      "descricao": "Lógica de servidores, APIs, regras de negócio e bancos de dados.",
+      "pesos": {"logica": 3, "matematica": 1, "dados": 1, "automacao": 1, "infraestrutura": 1, "obj_produto": 2, "ambiente=web": 1, "ambiente=indiferente": 1}
+    },
+    "frontend": {
+      "nome": "Desenvolvimento Front-end & UI/UX",
+      "descricao": "Interfaces web responsivas, experiência do usuário e frameworks reativos.",
+      "pesos": {"interfaces": 3, "criatividade": 3, "logica": 1, "comunicacao": 1, "obj_produto": 3, "ambiente=web": 2}
+    },
+    "ciencia_dados": {
+      "nome": "Ciência de Dados e Machine Learning",
+      "descricao": "Estatística, modelagem preditiva, análise de grandes volumes de dados e IA.",
+      "pesos": {"matematica": 3, "dados": 3, "logica": 1, "comunicacao": 1, "obj_insights": 3}
+    },
+    "engenharia_dados": {
+      "nome": "Engenharia de Dados",
+      "descricao": "Pipelines ETL/ELT, arquitetura de dados e infraestrutura para Data Lakes.",
+      "pesos": {"dados": 3, "logica": 2, "infraestrutura": 2, "automacao": 2, "nuvem": 1, "matematica": 1, "obj_insights": 1, "obj_infra": 1}
+    },
+    "seguranca": {
+      "nome": "Cibersegurança",
+      "descricao": "Defesa cibernética, análise de vulnerabilidades, criptografia e redes seguras.",
+      "pesos": {"seguranca": 3, "infraestrutura": 2, "atencao_detalhes": 2, "logica": 1, "obj_protecao": 3}
+    },
+    "devops": {
+      "nome": "DevOps & SRE",
+      "descricao": "Automação, integração e entrega contínua (CI/CD), contêineres e confiabilidade.",
+      "pesos": {"automacao": 3, "infraestrutura": 3, "nuvem": 1, "logica": 1, "obj_infra": 3}
+    },
+    "cloud": {
+      "nome": "Cloud Architecture",
+      "descricao": "Planejamento, migração e gestão de infraestruturas escaláveis em nuvem.",
+      "pesos": {"nuvem": 3, "infraestrutura": 2, "automacao": 1, "comunicacao": 1, "lideranca": 1, "obj_infra": 2, "ambiente=nuvem": 2}
+    },
+    "mobile": {
+      "nome": "Desenvolvimento Mobile",
+      "descricao": "Aplicativos nativos ou multiplataforma (Kotlin, Swift, Flutter, React Native).",
+      "pesos": {"mobile": 3, "interfaces": 2, "logica": 2, "criatividade": 1, "obj_produto": 2, "ambiente=mobile": 3}
+    },
+    "qa": {
+      "nome": "Qualidade e Testes (QA)",
+      "descricao": "Testes automatizados, confiabilidade de software e processos de qualidade.",
+      "pesos": {"testes": 3, "atencao_detalhes": 3, "automacao": 1, "logica": 1, "comunicacao": 1, "obj_qualidade": 3}
+    },
+    "produto": {
+      "nome": "Product Management",
+      "descricao": "Ponte entre negócio, design e desenvolvimento; priorização e métodos ágeis.",
+      "pesos": {"comunicacao": 3, "lideranca": 3, "criatividade": 1, "dados": 1, "obj_produto": 1, "obj_negocio": 3}
+    }
+  },
+  "regras": [
+    {"id": "B01", "tipo": "bonus", "trilha": "ciencia_dados", "efeito": 8,
+     "se": [{"pergunta": "matematica", "op": ">=", "valor": 4}, {"pergunta": "dados", "op": ">=", "valor": 4}],
+     "motivo": "Matemática forte combinada com gosto por dados é a base de modelos preditivos."},
+    {"id": "B02", "tipo": "bonus", "trilha": "engenharia_dados", "efeito": 8,
+     "se": [{"pergunta": "dados", "op": ">=", "valor": 4}, {"pergunta": "infraestrutura", "op": ">=", "valor": 4}],
+     "motivo": "Dados + infraestrutura é o perfil de quem constrói pipelines e Data Lakes."},
+    {"id": "B03", "tipo": "bonus", "trilha": "devops", "efeito": 6,
+     "se": [{"pergunta": "automacao", "op": ">=", "valor": 4}, {"pergunta": "infraestrutura", "op": ">=", "valor": 4}, {"pergunta": "ambiente", "op": "!=", "valor": "nuvem"}],
+     "motivo": "Automação de infraestrutura sem foco exclusivo em nuvem é típico de DevOps/SRE."},
+    {"id": "B04", "tipo": "bonus", "trilha": "cloud", "efeito": 8,
+     "se": [{"pergunta": "nuvem", "op": ">=", "valor": 4}, {"pergunta": "ambiente", "op": "==", "valor": "nuvem"}],
+     "motivo": "Alta afinidade com nuvem e preferência por atuar nela."},
+    {"id": "B05", "tipo": "bonus", "trilha": "frontend", "efeito": 8,
+     "se": [{"pergunta": "interfaces", "op": ">=", "valor": 4}, {"pergunta": "criatividade", "op": ">=", "valor": 4}, {"pergunta": "ambiente", "op": "==", "valor": "web"}],
+     "motivo": "Gosto por interfaces e criatividade visual voltados para a web."},
+    {"id": "B06", "tipo": "bonus", "trilha": "mobile", "efeito": 10,
+     "se": [{"pergunta": "mobile", "op": ">=", "valor": 4}, {"pergunta": "ambiente", "op": "==", "valor": "mobile"}],
+     "motivo": "Alta afinidade com apps e preferência explícita pelo ambiente mobile."},
+    {"id": "B07", "tipo": "bonus", "trilha": "qa", "efeito": 8,
+     "se": [{"pergunta": "testes", "op": ">=", "valor": 4}, {"pergunta": "atencao_detalhes", "op": ">=", "valor": 4}],
+     "motivo": "Gosto por testar somado a atenção a detalhes é o perfil clássico de QA."},
+    {"id": "B08", "tipo": "bonus", "trilha": "seguranca", "efeito": 8,
+     "se": [{"pergunta": "seguranca", "op": ">=", "valor": 4}, {"pergunta": "obj_protecao", "op": ">=", "valor": 4}],
+     "motivo": "Interesse técnico por segurança alinhado à motivação de proteger sistemas."},
+    {"id": "B09", "tipo": "bonus", "trilha": "produto", "efeito": 10,
+     "se": [{"pergunta": "comunicacao", "op": ">=", "valor": 4}, {"pergunta": "lideranca", "op": ">=", "valor": 4}, {"pergunta": "obj_negocio", "op": ">=", "valor": 4}],
+     "motivo": "Comunicação, liderança e visão de negócio juntas formam o perfil de Product Manager."},
+    {"id": "B10", "tipo": "bonus", "trilha": "backend", "efeito": 6,
+     "se": [{"pergunta": "logica", "op": ">=", "valor": 4}, {"pergunta": "obj_produto", "op": ">=", "valor": 4}, {"pergunta": "interfaces", "op": "<=", "valor": 3}],
+     "motivo": "Quer construir o produto pela lógica, sem foco na parte visual."},
+
+    {"id": "P01", "tipo": "penalidade", "trilha": "ciencia_dados", "efeito": -20,
+     "se": [{"pergunta": "matematica", "op": "<=", "valor": 2}],
+     "motivo": "Pouca afinidade com matemática conflita com a estatística exigida em Ciência de Dados."},
+    {"id": "P02", "tipo": "penalidade", "trilha": "produto", "efeito": -25,
+     "se": [{"pergunta": "comunicacao", "op": "<=", "valor": 2}],
+     "motivo": "Product Management depende de comunicação constante com pessoas."},
+    {"id": "P03", "tipo": "penalidade", "trilha": "engenharia_dados", "efeito": -15,
+     "se": [{"pergunta": "dados", "op": "<=", "valor": 2}],
+     "motivo": "Pouco interesse por dados conflita com a Engenharia de Dados."},
+    {"id": "P04", "tipo": "penalidade", "trilha": "ciencia_dados", "efeito": -15,
+     "se": [{"pergunta": "dados", "op": "<=", "valor": 2}],
+     "motivo": "Pouco interesse por dados conflita com a Ciência de Dados."},
+    {"id": "P05", "tipo": "penalidade", "trilha": "frontend", "efeito": -20,
+     "se": [{"pergunta": "interfaces", "op": "<=", "valor": 2}, {"pergunta": "criatividade", "op": "<=", "valor": 2}],
+     "motivo": "Pouco gosto por interfaces e pela parte visual conflita com Front-end/UX."},
+    {"id": "P06", "tipo": "penalidade", "trilha": "qa", "efeito": -20,
+     "se": [{"pergunta": "atencao_detalhes", "op": "<=", "valor": 2}],
+     "motivo": "QA exige paciência com detalhes."},
+    {"id": "P07", "tipo": "penalidade", "trilha": "seguranca", "efeito": -10,
+     "se": [{"pergunta": "atencao_detalhes", "op": "<=", "valor": 2}],
+     "motivo": "Encontrar vulnerabilidades exige atenção a detalhes."},
+    {"id": "P08", "tipo": "penalidade", "trilha": "devops", "efeito": -20,
+     "se": [{"pergunta": "infraestrutura", "op": "<=", "valor": 2}],
+     "motivo": "Pouca afinidade com infraestrutura conflita com DevOps/SRE."},
+    {"id": "P09", "tipo": "penalidade", "trilha": "cloud", "efeito": -15,
+     "se": [{"pergunta": "infraestrutura", "op": "<=", "valor": 2}],
+     "motivo": "Arquitetura em nuvem exige base de infraestrutura."},
+    {"id": "P10", "tipo": "penalidade", "trilha": "backend", "efeito": -20,
+     "se": [{"pergunta": "logica", "op": "<=", "valor": 2}],
+     "motivo": "Back-end é essencialmente lógica de programação."},
+    {"id": "P11", "tipo": "penalidade", "trilha": "mobile", "efeito": -10,
+     "se": [{"pergunta": "logica", "op": "<=", "valor": 2}],
+     "motivo": "Apps exigem boa base de lógica de programação."},
+    {"id": "P12", "tipo": "penalidade", "trilha": "mobile", "efeito": -15,
+     "se": [{"pergunta": "mobile", "op": "<=", "valor": 2}, {"pergunta": "ambiente", "op": "!=", "valor": "mobile"}],
+     "motivo": "Sem afinidade com apps e sem preferência pelo ambiente mobile."},
+    {"id": "P13", "tipo": "penalidade", "trilha": "cloud", "efeito": -15,
+     "se": [{"pergunta": "nuvem", "op": "<=", "valor": 2}],
+     "motivo": "Pouca afinidade com serviços de nuvem."},
+    {"id": "P14", "tipo": "penalidade", "trilha": "frontend", "efeito": -10,
+     "se": [{"pergunta": "ambiente", "op": "==", "valor": "mobile"}],
+     "motivo": "Preferência pelo celular desloca o perfil de interface para Mobile em vez de Web."},
+    {"id": "P15", "tipo": "penalidade", "trilha": "seguranca", "efeito": -20,
+     "se": [{"pergunta": "seguranca", "op": "<=", "valor": 2}],
+     "motivo": "Pouco interesse por segurança da informação."},
+    {"id": "P16", "tipo": "penalidade", "trilha": "qa", "efeito": -15,
+     "se": [{"pergunta": "testes", "op": "<=", "valor": 2}, {"pergunta": "obj_qualidade", "op": "<=", "valor": 2}],
+     "motivo": "Sem gosto por testes nem motivação por qualidade."},
+    {"id": "P17", "tipo": "penalidade", "trilha": "devops", "efeito": -15,
+     "se": [{"pergunta": "automacao", "op": "<=", "valor": 2}],
+     "motivo": "DevOps é, antes de tudo, automação."}
+  ]
+}
