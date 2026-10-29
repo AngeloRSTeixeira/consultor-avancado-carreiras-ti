@@ -74,3 +74,17 @@ def validar_base(base: dict) -> None:
                 raise ErroBaseConhecimento(f"Regra {regra['id']}: pergunta inexistente '{cond['pergunta']}'.")
             if cond["op"] not in OPERADORES:
                 raise ErroBaseConhecimento(f"Regra {regra['id']}: operador inválido '{cond['op']}'.")
+
+    # Fase 3: competências e plano de carreira (opcionais para o motor de ranking)
+    if "plano_carreira" in base:
+        competencias = base.get("competencias", {})
+        nivel_max = max(int(n) for n in base["niveis_conhecimento"])
+        for tid in base["trilhas"]:
+            if tid not in base["plano_carreira"]:
+                raise ErroBaseConhecimento(f"Trilha sem plano de carreira: {tid}")
+        for tid, plano in base["plano_carreira"].items():
+            for skill, (nivel, prioridade) in plano["junior"].items():
+                if skill not in competencias:
+                    raise ErroBaseConhecimento(f"Plano {tid}: competência inexistente '{skill}'.")
+                if not 1 <= nivel <= nivel_max or prioridade not in (1, 2, 3):
+                    raise ErroBaseConhecimento(f"Plano {tid}: nível/prioridade inválidos em '{skill}'.")

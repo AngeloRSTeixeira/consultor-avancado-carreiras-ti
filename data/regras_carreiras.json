@@ -104,6 +104,160 @@
       "pesos": {"comunicacao": 3, "lideranca": 3, "criatividade": 1, "dados": 1, "obj_produto": 1, "obj_negocio": 3}
     }
   },
+  "niveis_conhecimento": {"0": "Nenhum", "1": "Básico", "2": "Intermediário", "3": "Avançado"},
+  "horas_por_nivel": 30,
+  "competencias": {
+    "programacao": {"nome": "Lógica e uma linguagem de programação (ex.: Python)",
+      "estudar": ["Variáveis, condicionais e laços", "Funções e estruturas de dados", "Orientação a objetos", "Exercícios práticos (Beecrowd, LeetCode nível fácil)"]},
+    "html_css": {"nome": "HTML e CSS",
+      "estudar": ["HTML semântico", "CSS Flexbox e Grid", "Layout responsivo"]},
+    "javascript": {"nome": "JavaScript / TypeScript",
+      "estudar": ["Fundamentos de JavaScript moderno (ES6+)", "Manipulação do DOM", "Assincronismo (fetch, async/await)", "TypeScript básico"]},
+    "framework_front": {"nome": "Framework front-end (React, Vue ou Angular)",
+      "estudar": ["Componentes, props e estado", "Rotas e consumo de APIs", "Gerenciamento de estado"]},
+    "linguagem_backend": {"nome": "Linguagem e framework de back-end (Java, C#, Python ou Node.js)",
+      "estudar": ["Um framework web (Spring Boot, ASP.NET, FastAPI/Django ou Express)", "Organização em camadas", "Tratamento de erros e logs"]},
+    "apis_rest": {"nome": "APIs REST",
+      "estudar": ["Verbos HTTP e códigos de status", "Projetar e documentar APIs (OpenAPI/Swagger)", "Autenticação (JWT, OAuth)"]},
+    "sql": {"nome": "SQL e bancos de dados",
+      "estudar": ["SELECT, JOIN e GROUP BY", "Modelagem relacional e normalização", "Índices e desempenho básico"]},
+    "git": {"nome": "Git e GitHub",
+      "estudar": ["Commits, branches e merge", "Pull requests e revisão de código", "Fluxo de trabalho no GitHub"]},
+    "linux": {"nome": "Linux",
+      "estudar": ["Terminal e comandos essenciais", "Permissões, processos e serviços", "Shell script"]},
+    "redes": {"nome": "Redes de computadores",
+      "estudar": ["Modelos TCP/IP e OSI", "DNS, HTTP/HTTPS e portas", "Sub-redes e firewalls"]},
+    "docker": {"nome": "Contêineres (Docker)",
+      "estudar": ["Imagens e contêineres", "Dockerfile e Docker Compose", "Noções de Kubernetes"]},
+    "ci_cd": {"nome": "Integração e entrega contínua (CI/CD)",
+      "estudar": ["Pipelines com GitHub Actions", "Build, testes e deploy automatizados", "Estratégias de deploy"]},
+    "cloud": {"nome": "Computação em nuvem (AWS, Azure ou GCP)",
+      "estudar": ["Conceitos: regiões, IaaS/PaaS/SaaS", "Computação, armazenamento e rede em um provedor", "Custos e controle de acesso (IAM)"]},
+    "iac": {"nome": "Infraestrutura como código",
+      "estudar": ["Terraform básico", "Versionar a infraestrutura", "Ambientes reproduzíveis"]},
+    "estatistica": {"nome": "Estatística",
+      "estudar": ["Estatística descritiva", "Probabilidade e distribuições", "Correlação e testes de hipótese"]},
+    "machine_learning": {"nome": "Machine Learning",
+      "estudar": ["Pandas e NumPy", "Regressão e classificação com scikit-learn", "Validação de modelos e métricas"]},
+    "pipelines": {"nome": "Pipelines de dados (ETL/ELT)",
+      "estudar": ["Conceitos de ETL/ELT", "Orquestração (Airflow)", "Processamento distribuído (Spark)", "Data Warehouse e Data Lake"]},
+    "seguranca_fundamentos": {"nome": "Fundamentos de segurança",
+      "estudar": ["Tríade CIA e criptografia", "OWASP Top 10", "Gestão de identidades e acessos"]},
+    "pentest": {"nome": "Testes de invasão (pentest)",
+      "estudar": ["Reconhecimento e varredura (Nmap)", "Análise de tráfego (Wireshark)", "Laboratórios práticos (TryHackMe, Hack The Box)"]},
+    "testes_automatizados": {"nome": "Testes automatizados",
+      "estudar": ["Pirâmide de testes", "Testes unitários (pytest, JUnit ou Jest)", "Testes de ponta a ponta (Cypress, Playwright ou Selenium)"]},
+    "mobile_dev": {"nome": "Desenvolvimento mobile (Kotlin, Swift ou Flutter)",
+      "estudar": ["Uma tecnologia: Kotlin (Android), Swift (iOS) ou Flutter", "Ciclo de vida e navegação entre telas", "Consumo de APIs e armazenamento local"]},
+    "ux_design": {"nome": "UX/UI Design",
+      "estudar": ["Princípios de UX e heurísticas de Nielsen", "Prototipação no Figma", "Acessibilidade"]},
+    "agil": {"nome": "Métodos ágeis",
+      "estudar": ["Scrum e Kanban", "Histórias de usuário e critérios de aceite", "Ferramentas como Jira ou Trello"]},
+    "gestao_produto": {"nome": "Gestão de produto",
+      "estudar": ["Discovery e entrevistas com usuários", "Priorização (RICE, MoSCoW)", "Métricas de produto (KPIs, OKRs)", "Roadmap de produto"]}
+  },
+  "plano_carreira": {
+    "backend": {
+      "junior": {"programacao": [2, 1], "linguagem_backend": [2, 1], "apis_rest": [2, 1], "sql": [2, 1], "git": [2, 2], "testes_automatizados": [1, 2], "linux": [1, 3], "docker": [1, 3]},
+      "certificacoes": [
+        {"nome": "AWS Certified Cloud Practitioner ou Microsoft Azure Fundamentals (AZ-900)", "momento": "Para o Júnior"},
+        {"nome": "Oracle Certified Professional: Java SE Developer (se escolher Java)", "momento": "Próximo passo"}],
+      "projetos": [
+        "API REST de um sistema de biblioteca ou loja, com autenticação JWT e banco de dados",
+        "Encurtador de URLs com cache e testes automatizados",
+        "Mesma API rodando em Docker, com documentação Swagger e README caprichado"]
+    },
+    "frontend": {
+      "junior": {"html_css": [2, 1], "javascript": [2, 1], "framework_front": [2, 1], "git": [2, 2], "ux_design": [1, 2], "apis_rest": [1, 3], "testes_automatizados": [1, 3]},
+      "certificacoes": [
+        {"nome": "Meta Front-End Developer Professional Certificate (Coursera)", "momento": "Para o Júnior"},
+        {"nome": "Google UX Design Professional Certificate (Coursera)", "momento": "Próximo passo"}],
+      "projetos": [
+        "Portfólio pessoal responsivo publicado no GitHub Pages",
+        "Clone de uma tela conhecida (ex.: página de streaming) consumindo uma API pública",
+        "Dashboard em React com gráficos, filtros e boa acessibilidade"]
+    },
+    "ciencia_dados": {
+      "junior": {"programacao": [2, 1], "estatistica": [2, 1], "sql": [2, 1], "machine_learning": [2, 1], "git": [1, 2], "pipelines": [1, 3]},
+      "certificacoes": [
+        {"nome": "IBM Data Science Professional Certificate (Coursera)", "momento": "Para o Júnior"},
+        {"nome": "AWS Certified Machine Learning Engineer – Associate", "momento": "Próximo passo"}],
+      "projetos": [
+        "Análise exploratória completa de um dataset público (Kaggle, dados.gov.br) em Jupyter",
+        "Modelo de classificação ou previsão com avaliação de métricas e explicação dos resultados",
+        "Pequeno app em Streamlit que serve o modelo para o usuário testar"]
+    },
+    "engenharia_dados": {
+      "junior": {"programacao": [2, 1], "sql": [3, 1], "pipelines": [2, 1], "cloud": [1, 2], "linux": [1, 2], "git": [2, 2], "docker": [1, 3]},
+      "certificacoes": [
+        {"nome": "Databricks Certified Data Engineer Associate", "momento": "Para o Júnior"},
+        {"nome": "Google Cloud Professional Data Engineer", "momento": "Próximo passo"}],
+      "projetos": [
+        "Pipeline ETL que coleta dados de uma API pública e carrega num banco PostgreSQL",
+        "Mesmo pipeline orquestrado com Airflow e rodando em Docker",
+        "Modelagem de um pequeno Data Warehouse (esquema estrela) com consultas analíticas"]
+    },
+    "seguranca": {
+      "junior": {"redes": [2, 1], "linux": [2, 1], "seguranca_fundamentos": [2, 1], "pentest": [1, 2], "programacao": [1, 2], "cloud": [1, 3]},
+      "certificacoes": [
+        {"nome": "Google Cybersecurity Professional Certificate ou CompTIA Security+", "momento": "Para o Júnior"},
+        {"nome": "eJPT – eLearnSecurity Junior Penetration Tester (INE)", "momento": "Próximo passo"}],
+      "projetos": [
+        "Write-ups (relatórios) de máquinas resolvidas no TryHackMe ou Hack The Box",
+        "Laboratório caseiro com máquinas virtuais, firewall e monitoramento de logs",
+        "Script em Python que verifica portas abertas e configurações inseguras no próprio laboratório"]
+    },
+    "devops": {
+      "junior": {"linux": [2, 1], "git": [2, 1], "docker": [2, 1], "ci_cd": [2, 1], "cloud": [1, 2], "iac": [1, 2], "programacao": [1, 2], "redes": [1, 3]},
+      "certificacoes": [
+        {"nome": "AWS Certified Cloud Practitioner e HashiCorp Certified: Terraform Associate", "momento": "Para o Júnior"},
+        {"nome": "CKA – Certified Kubernetes Administrator", "momento": "Próximo passo"}],
+      "projetos": [
+        "Pipeline de CI/CD no GitHub Actions que testa e publica uma aplicação",
+        "Aplicação com vários serviços orquestrada por Docker Compose",
+        "Infraestrutura na nuvem criada com Terraform e monitorada (ex.: Prometheus + Grafana)"]
+    },
+    "cloud": {
+      "junior": {"cloud": [2, 1], "redes": [2, 1], "linux": [2, 1], "iac": [1, 2], "docker": [1, 2], "seguranca_fundamentos": [1, 3]},
+      "certificacoes": [
+        {"nome": "AWS Certified Cloud Practitioner ou Microsoft Azure Fundamentals (AZ-900)", "momento": "Para o Júnior"},
+        {"nome": "AWS Certified Solutions Architect – Associate", "momento": "Próximo passo"}],
+      "projetos": [
+        "Site estático hospedado em armazenamento de objetos com CDN e domínio próprio",
+        "Arquitetura de três camadas (web, aplicação, banco) desenhada e implantada com Terraform",
+        "Documento de arquitetura com estimativa de custos e plano de alta disponibilidade"]
+    },
+    "mobile": {
+      "junior": {"programacao": [2, 1], "mobile_dev": [2, 1], "git": [2, 2], "apis_rest": [1, 2], "ux_design": [1, 3], "testes_automatizados": [1, 3]},
+      "certificacoes": [
+        {"nome": "Meta Android Developer ou Meta iOS Developer Professional Certificate (Coursera)", "momento": "Para o Júnior"},
+        {"nome": "Publicar um app na Google Play ou App Store (pesa mais que um certificado)", "momento": "Próximo passo"}],
+      "projetos": [
+        "App de lista de tarefas com armazenamento local",
+        "App que consome uma API pública (clima, filmes, etc.) com tratamento de erros",
+        "App completo com login, várias telas e publicação em loja ou link de teste"]
+    },
+    "qa": {
+      "junior": {"testes_automatizados": [2, 1], "programacao": [1, 1], "git": [1, 2], "apis_rest": [1, 2], "agil": [1, 2], "sql": [1, 3]},
+      "certificacoes": [
+        {"nome": "ISTQB Certified Tester Foundation Level (CTFL)", "momento": "Para o Júnior"},
+        {"nome": "ISTQB Test Automation Engineering", "momento": "Próximo passo"}],
+      "projetos": [
+        "Suíte de testes E2E (Cypress ou Playwright) para um site público de demonstração",
+        "Testes automatizados de uma API pública com Postman ou pytest",
+        "Plano de testes e relatório de bugs bem documentados no GitHub"]
+    },
+    "produto": {
+      "junior": {"gestao_produto": [2, 1], "agil": [2, 1], "ux_design": [1, 2], "sql": [1, 2], "apis_rest": [1, 3]},
+      "certificacoes": [
+        {"nome": "Professional Scrum Product Owner I (PSPO I)", "momento": "Para o Júnior"},
+        {"nome": "Professional Scrum Master I (PSM I)", "momento": "Próximo passo"}],
+      "projetos": [
+        "Estudo de caso: discovery de um problema real com entrevistas e personas",
+        "Roadmap e backlog priorizado de um produto fictício, com histórias de usuário",
+        "Painel de métricas de produto (ex.: no Looker Studio) com análise das decisões"]
+    }
+  },
   "regras": [
     {"id": "B01", "tipo": "bonus", "trilha": "ciencia_dados", "efeito": 8,
      "se": [{"pergunta": "matematica", "op": ">=", "valor": 4}, {"pergunta": "dados", "op": ">=", "valor": 4}],

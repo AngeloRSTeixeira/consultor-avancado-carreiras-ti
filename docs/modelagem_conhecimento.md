@@ -89,3 +89,20 @@ As regras tratam as interações que uma soma simples não captura.
 - O resultado não é uma única trilha: é um **ranking com percentual de aderência**, e o sistema mostra o Top 3.
 - Quando a diferença entre o 1º e o 2º lugar é pequena (menos de 5 pontos), o sistema avisa que o perfil é **híbrido**.
 - Quando nenhuma trilha passa de 50%, ou todas ficam muito parecidas, o sistema avisa que a recomendação tem **baixa confiança**.
+
+## 6. Fase 3 — Gaps e roadmap (campos adicionais do JSON)
+
+| Chave | Conteúdo |
+|---|---|
+| `niveis_conhecimento` | 0 Nenhum · 1 Básico · 2 Intermediário · 3 Avançado. |
+| `horas_por_nivel` | Horas de estudo estimadas para subir um nível (30 h). |
+| `competencias` | 24 competências técnicas, cada uma com os tópicos de estudo em ordem. |
+| `plano_carreira` | Para cada trilha: `junior` (competência → [nível exigido, prioridade 1–3]), `certificacoes` e `projetos` de portfólio. |
+
+**Como a análise funciona:**
+
+1. O usuário informa o nível atual em cada competência.
+2. Para a trilha escolhida, o sistema compara o nível atual com o exigido para Júnior. Cada diferença positiva é uma **lacuna** (gap).
+3. A **prontidão** é `Σ min(atual, exigido) / Σ exigido`. Ela mostra quanto do caminho até o Júnior já foi percorrido.
+4. O **nível atual** é estimado com a prontidão, as lacunas críticas (prioridade alta) e a experiência informada: Iniciante → Em formação → Pronto para Júnior → Júnior → Rumo ao Pleno.
+5. O **roadmap** ordena as lacunas por prioridade e tamanho. Ele pula os tópicos que o usuário já domina, estima as horas (`falta × 30 h`) e as semanas (pelas horas semanais informadas), e termina com projetos de portfólio e certificações.
