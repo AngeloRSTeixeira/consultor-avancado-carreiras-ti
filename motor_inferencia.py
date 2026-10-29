@@ -176,24 +176,36 @@ class MotorInferencia:
 
         alertas = []
         primeiro, segundo = ranking[0], ranking[1]
-        diferenca = primeiro.compatibilidade - segundo.compatibilidade
-        hibrido = diferenca < LIMIAR_EMPATE
-        if hibrido:
+        aderencia_forte = primeiro.compatibilidade >= LIMIAR_CONFIANCA
+        # Trilhas "empatadas" com a primeira (diferença menor que o limiar)
+        empatadas = [r for r in ranking if primeiro.compatibilidade - r.compatibilidade < LIMIAR_EMPATE]
+
+        hibrido = aderencia_forte and len(empatadas) >= 2
+        baixa_confianca = False
+        if hibrido and len(empatadas) == 2:
+            diferenca = primeiro.compatibilidade - segundo.compatibilidade
             alertas.append(
                 f"Perfil híbrido: {primeiro.nome} e {segundo.nome} ficaram a apenas "
                 f"{diferenca:.1f} ponto(s) de distância. As duas trilhas são boas opções; "
                 "veja os motivos de cada uma para decidir."
             )
+        elif hibrido:
+            baixa_confianca = True
+            alertas.append(
+                f"{len(empatadas)} trilhas ficaram praticamente empatadas no topo "
+                f"({', '.join(r.nome for r in empatadas[:4])}{'...' if len(empatadas) > 4 else ''}). "
+                "Seu perfil é muito amplo; tente diferenciar mais as respostas para uma "
+                "recomendação mais precisa."
+            )
 
-        baixa_confianca = False
-        if primeiro.compatibilidade < LIMIAR_CONFIANCA:
+        if not aderencia_forte:
             baixa_confianca = True
             alertas.append(
                 "Nenhuma trilha passou de 50% de aderência. Suas respostas indicam pouca afinidade "
                 "com as áreas avaliadas; o resultado deve ser visto com cautela."
             )
         desvio = statistics.pstdev(r.compatibilidade for r in ranking)
-        if desvio < LIMIAR_UNIFORME:
+        if desvio < LIMIAR_UNIFORME and not (hibrido and len(empatadas) > 2):
             baixa_confianca = True
             alertas.append(
                 "Suas respostas ficaram muito parecidas entre si, então as trilhas obtiveram "
